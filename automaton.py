@@ -24,8 +24,6 @@ while (not done):
 #Declaring starting and ending states
 s0 = input("Which of these states is the starting state? :")
 
-s0 = states.index(s0)
-print(s0)
 sf = input("Which of these states is the ending state? : ")
 sf = states.index(sf)
 
@@ -70,10 +68,18 @@ print(userArray)
 
 currentState = s0
 
-for i in range(len(userArray)):
-    currentState = states[currentState][symbols.index(userArray[i])]
+print(currentState)
 
-if currentState != sf:
+for i in range(len(userArray)):
+    currentState = states.index(currentState)
+
+    print(currentState)
+
+    currentState = transitions[int(currentState)][int(symbols.index(userArray[i]))]
+
+    print(currentState)
+
+if states.index(currentState) != sf:
     print("The user's input was not accepted :(")
 else:
     print("The user's input was accepted! :)")
