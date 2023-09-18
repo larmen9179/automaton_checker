@@ -6,6 +6,9 @@ print()
 states = []
 symbols = []
 
+#Matrix to assign states to states with symbols
+transitions = []
+
 done = False
 
 while (not done):
@@ -16,8 +19,6 @@ while (not done):
     else:
         states.append(option)
 
-print(states)
-print(symbols)
 
 #Re-declaring done as false so we can now check symbols
 done = False
@@ -28,4 +29,18 @@ while (not done):
     if option.lower() == "done":
         done = True
     else:
-        symbols
+        symbols.append(option)
+
+print(states)
+print(symbols)
+
+print("Now we'll ask you how the states transition with symbols")
+
+for i in range(len(states)):
+    transitionsToAdd = []
+    for j in range(len(symbols)):
+        nextState = input("If we are on state " + states[i] " and we see symbol " + symbols[i] + " , what is the next states we go to: ")
+        transitionsToAdd.append(nextState)
+    
+    transitions.append(transitionsToAdd)
+
