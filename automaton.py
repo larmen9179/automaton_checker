@@ -21,3 +21,11 @@ print(symbols)
 
 #Re-declaring done as false so we can now check symbols
 done = False
+
+while (not done): 
+    option = input("Please enter in all the symbols, or type 'done' if you've finished typing symbols: ")
+
+    if option.lower() == "done":
+        done = True
+    else:
+        symbols
