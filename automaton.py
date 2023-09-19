@@ -38,9 +38,11 @@ while (not done):
     else:
         symbols.append(option)
 
+print("List of states: ") 
 print(states)
-print(symbols)
 
+print("List of symbols: ")
+print(symbols)
 print("Now we'll ask you how the states transition with symbols")
 
 for i in range(len(states)):
@@ -52,6 +54,7 @@ for i in range(len(states)):
     transitions.append(transitionsToAdd)
 
 #Printing the matrix for output
+print("Matrix of state transitions: ")
 for i in range(len(transitions)):
     print(transitions[i])
 
@@ -62,25 +65,16 @@ print("Now we'll check if your input is accepted by this automaton...")
 userString = input("Enter in your string: ")
 userArray = list(userString)
 
-#Outputting the users string for comparison
-print(userArray)
-
-
 currentState = s0
-
-print(currentState)
 
 for i in range(len(userArray)):
     currentState = states.index(currentState)
 
-    print(currentState)
-
     currentState = transitions[int(currentState)][int(symbols.index(userArray[i]))]
-
-    print(currentState)
 
 if states.index(currentState) != sf:
     print("The user's input was not accepted :(")
 else:
     print("The user's input was accepted! :)")
+
 
